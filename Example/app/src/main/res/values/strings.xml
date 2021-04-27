@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">AskWorms</string>
+    <string name="slide1_desc">orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
+    <string name="slide1_heading">HEADING</string>
+    <string name="next">Nächste</string>
+    <string name="willkommen">Willkommen!</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="anderemethode">Benutze eine andere Methoden</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="student">Student</string>
+    <string name="name">Name</string>
+    <string name="_500">500</string>
+    <string name="aabbccdd12345">AABBCCDD12345</string>
+    <string name="password">Password</string>
+    <string name="_01629769334">01629769334</string>
+    <string name="beispiel_askhsworms_de">beispiel@askhsworms.de</string>
+    <string name="email">Email</string>
+    <string name="issam_charef">Issam Charef</string>
+    <string name="tel_nummer">Tel.Nummer</string>
+    <string name="balance">Balance</string>
+    <string name="update">Update</string>
+    <string name="todo">TODO</string>
+
+
+</resources>
