@@ -1,8 +1,36 @@
 <resources>
-    <string name="app_name">AskWorms</string>
-    <string name="slide1_desc">orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
-    <string name="slide1_heading">HEADING</string>
-    <string name="next">Nächste</string>
+    <string name="app_name">AskHSWorms</string>
+    <string name="slide_desc_text1">
+        (1) Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </string>
+    <string name="slide_desc_text2">
+        (2) Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </string>
+    <string name="slide_desc_text3">
+        (3) Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </string>
+    <string name="slide_heading_text1">HEADING 1</string>
+    <string name="slide_heading_text2">HEADING 2</string>
+    <string name="slide_heading_text3">HEADING 3</string>
+    <string name="next_text">Nächste</string>
     <string name="willkommen">Willkommen!</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
@@ -22,6 +50,8 @@
     <string name="balance">Balance</string>
     <string name="update">Update</string>
     <string name="todo">TODO</string>
+    <string name="los_gehts">Los gehts!</string>
+    <string name="naechste">Nächste</string>
 
 
 </resources>

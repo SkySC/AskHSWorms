@@ -15,32 +15,31 @@ import com.issam.example.WelcomeActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth
-    lateinit var progressBar: ProgressBar
+    private lateinit var authentication : FirebaseAuth
+    lateinit var progressBar : ProgressBar
+    lateinit var loginButton : Button
+    lateinit var signUpButton : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        lateinit var btnlogin:Button
-        lateinit var btnsignUp:ImageView
-        progressBar= findViewById(R.id.progressBar)
-        auth = FirebaseAuth.getInstance()
-        btnlogin= findViewById(R.id.btn_login)
-        btnsignUp= findViewById(R.id.btnRegistration)
+        authentication = FirebaseAuth.getInstance()
+        progressBar = findViewById(R.id.progressBar)
+        loginButton = findViewById(R.id.btn_login)
+        signUpButton = findViewById(R.id.btnRegistration)
 
-
-        auth = Firebase.auth
+        authentication = Firebase.auth
 
         ///
-        btnsignUp.setOnClickListener{
+        signUpButton.setOnClickListener{
             startActivity(Intent(applicationContext, RegisterActivity::class.java))
             finish()
         }
 
 
         // Jetzt onClick
-        btnlogin.setOnClickListener {
+        loginButton.setOnClickListener {
             userLogin()
 
 
@@ -78,10 +77,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
         progressBar.setVisibility(View.VISIBLE)
-        auth.signInWithEmailAndPassword(email, password)
+        authentication.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val user = auth.currentUser
+                    val user = authentication.currentUser
                     if(user.isEmailVerified){
                         val i = Intent(applicationContext, WelcomeActivity::class.java)
                         startActivity(i)
@@ -111,7 +110,7 @@ class LoginActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+        val currentUser = authentication.currentUser
         if(currentUser != null){
             updateUI(currentUser)
         }
