@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grau"
+    tools:context=".NewsContent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbaar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <ImageView
+            android:id="@+id/rjaa"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:clickable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/back"  />
+
+        <TextView
+            android:id="@+id/titleNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50dp"
+            android:text="Lorem Ipsum"
+            android:textAlignment="center"
+            android:gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/toolbaar"
+          android:orientation="vertical"
+          tools:ignore="MissingConstraints">
+
+          <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="300dp"
+              android:layout_marginTop="10dp"
+              android:src="@drawable/newsbild"
+              android:layout_gravity="center"
+                 />
+
+          <TextView
+              android:id="@+id/contenuas"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="15dp"
+              android:text="Lorem Ipsum is sim"
+              android:layout_marginTop="10dp"
+              android:textAlignment="textStart"
+              android:background="@color/colorWhite" />
+          <TextView
+              android:id="@+id/date"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="20.01.2021"
+              android:paddingLeft="30dp"
+              android:paddingRight="30dp"
+              android:gravity="right"
+              android:layout_gravity="right"
+              android:layout_marginTop="3dp"
+              android:background="@color/colorWhite" />
+      </LinearLayout>
+
+
+
+
+</RelativeLayout>

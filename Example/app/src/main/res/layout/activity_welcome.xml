@@ -23,7 +23,9 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/menu_header"
         app:menu="@menu/nav_menu"
-
+        app:itemIconTint="@color/hs_farbe_hell"
         />
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

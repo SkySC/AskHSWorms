@@ -2,15 +2,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.issam.example">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
+        android:autoLink="web"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AskWorms_demo1"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".NewsContent"></activity>
+        <activity android:name=".importActivity.ForumActivity" />
+        <activity android:name=".importActivity.NotizenActivity" />
+        <activity android:name=".importActivity.FeedsActivity" />
+        <activity android:name=".ContentMainActivity" />
+        <activity android:name=".PasswordDone" />
+        <activity
+            android:name=".ForgotPassword"
+            android:label="@string/title_activity_forgot_password" />
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".WelcomeActivity" />
         <activity android:name="com.issam.askworms_demo1.RegisterActivity" />
         <activity android:name="com.issam.askworms_demo1.LoginActivity" />

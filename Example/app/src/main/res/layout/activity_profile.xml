@@ -17,15 +17,27 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:background="@color/colorPrimary"
+            android:layout_marginTop="-70dp"
             android:padding="20dp">
 
-            <ImageView
-                android:id="@+id/profile_image"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/bild_change"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/student_2"
                 android:contentDescription="@string/todo" />
+            <TextView
+                android:id="@+id/bild_change1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bild_change"
+                android:textSize="10sp"
+                android:layout_marginLeft="30dp"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:textColor="@color/whiteTextColor"
+                android:layout_below="@+id/bild_change"
+                />
 
             <TextView
                 android:id="@+id/full_name"
@@ -33,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@id/profile_image"
+                android:layout_toEndOf="@id/bild_change"
                 android:text="@string/issam_charef"
                 android:textColor="@color/whiteTextColor"
                 android:textSize="20sp" />
@@ -44,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/full_name"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@id/profile_image"
+                android:layout_toEndOf="@id/bild_change"
                 android:includeFontPadding="false"
                 android:text="@string/student"
                 android:textColor="@color/student"
@@ -77,7 +89,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/student"
+                        android:src="@drawable/questionicon"
                         android:contentDescription="@string/todo" />
 
                     <TextView
@@ -86,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:includeFontPadding="false"
-                        android:text="@string/_500"
+                        android:text="@string/_000"
                         android:textColor="@color/whiteTextColor"
                         android:textSize="25sp" />
 
@@ -97,7 +109,7 @@
                         android:layout_below="@id/egalwas"
                         android:layout_centerHorizontal="true"
                         android:includeFontPadding="false"
-                        android:text="@string/balance"
+                        android:text="@string/frage"
                         android:textColor="@color/whiteTextColor"
                         android:textSize="14sp" />
                 </RelativeLayout>
@@ -121,7 +133,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/student"
+                        android:src="@drawable/responseicon"
                         android:contentDescription="@string/todo" />
 
                     <TextView
@@ -130,7 +142,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:includeFontPadding="false"
-                        android:text="@string/_500"
+                        android:text="@string/_000"
                         android:textColor="@color/whiteTextColor"
                         android:textSize="25sp" />
 
@@ -141,7 +153,7 @@
                         android:layout_below="@id/wasanders"
                         android:layout_centerHorizontal="true"
                         android:includeFontPadding="false"
-                        android:text="@string/balance"
+                        android:text="@string/antwort"
                         android:textColor="@color/whiteTextColor"
                         android:textSize="14sp" />
                 </RelativeLayout>
@@ -171,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/username"
                     android:drawablePadding="10dp"
-                    android:text="@string/issam_charef">
+                    android:text="">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -189,7 +201,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/email"
                     android:drawablePadding="10dp"
-                    android:text="@string/beispiel_askhsworms_de">
+                    android:text="">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -207,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/phone"
                     android:drawablePadding="10dp"
-                    android:text="@string/_01629769334">
+                    android:text="">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -225,7 +237,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/password"
                     android:drawablePadding="10dp"
-                    android:text="@string/aabbccdd12345">
+                    android:text="">
 
                 </com.google.android.material.textfield.TextInputEditText>
 

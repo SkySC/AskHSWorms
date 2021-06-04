@@ -16,5 +16,10 @@
     <color name="hs_farbe">#22466c</color>
     <color name="hs_farbe_hell">#36679b</color>
     <color name="student">#e9b03d</color>
+    <color name="sucess">#54e346</color>
+    <color name="toolbar_forum">#08b58e</color>
+    <color name="toolbar_notizen">#c00606</color>
+    <color name="toolbar_feeds">#1f3658</color>
+    <color name="grau">#efecec</color>
 
 </resources>

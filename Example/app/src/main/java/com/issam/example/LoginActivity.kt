@@ -10,38 +10,45 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.issam.example.ForgotPassword
 import com.issam.example.R
 import com.issam.example.WelcomeActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var authentication : FirebaseAuth
-    lateinit var progressBar : ProgressBar
-    lateinit var loginButton : Button
-    lateinit var signUpButton : ImageView
+    private lateinit var auth: FirebaseAuth
+    lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        authentication = FirebaseAuth.getInstance()
-        progressBar = findViewById(R.id.progressBar)
-        loginButton = findViewById(R.id.btn_login)
-        signUpButton = findViewById(R.id.btnRegistration)
+        lateinit var btnlogin:Button
+        lateinit var password_reset:TextView
+        lateinit var btnsignUp:ImageView
+        progressBar= findViewById(R.id.progressBar)
+        auth = FirebaseAuth.getInstance()
+        btnlogin= findViewById(R.id.btn_login)
+        btnsignUp= findViewById(R.id.btnRegistration)
+        password_reset= findViewById(R.id.password_reset)
 
-        authentication = Firebase.auth
+
+        auth = Firebase.auth
 
         ///
-        signUpButton.setOnClickListener{
+        btnsignUp.setOnClickListener{
             startActivity(Intent(applicationContext, RegisterActivity::class.java))
+            finish()
+        }
+        password_reset.setOnClickListener{
+            startActivity(Intent(applicationContext, ForgotPassword::class.java))
             finish()
         }
 
 
         // Jetzt onClick
-        loginButton.setOnClickListener {
+        btnlogin.setOnClickListener {
             userLogin()
-
 
         }
 
@@ -77,10 +84,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
         progressBar.setVisibility(View.VISIBLE)
-        authentication.signInWithEmailAndPassword(email, password)
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val user = authentication.currentUser
+                    val user = auth.currentUser
                     if(user.isEmailVerified){
                         val i = Intent(applicationContext, WelcomeActivity::class.java)
                         startActivity(i)
@@ -110,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = authentication.currentUser
+        val currentUser = auth.currentUser
         if(currentUser != null){
             updateUI(currentUser)
         }

@@ -8,10 +8,12 @@
     android:gravity="bottom"
     android:background="@color/hs_farbe_hell">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_bild_home"
         android:layout_width="356px"
         android:layout_height="356px"
-        android:src="@drawable/student_2"/>
+        android:src="@drawable/dozent"
+       />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,9 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/anderemethode"
+        android:text="@string/hallouser"
         android:textSize="15sp"
         android:textColor="@color/whiteTextColor"/>
-
-
 </LinearLayout>

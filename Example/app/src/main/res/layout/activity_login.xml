@@ -64,12 +64,14 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/password_reset"
                 style="@style/viewParent"
-                android:layout_gravity="end"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="Password vergessen?"
-                android:textColor="@color/themeColor"
-                android:textSize="@dimen/newsMoreTextSize"/>
+                android:textColor="@color/hs_farbe"
+                android:textSize="@dimen/passswordvergessen"/>
 
             <Button
                 style="@style/loginButton"

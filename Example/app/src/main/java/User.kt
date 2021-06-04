@@ -1,13 +1,7 @@
 package com.issam.example
 
-import android.widget.Button
+ data class User(val fullname: String, val email: String, val tel: String, val password : String, val userPower:String, val profilBild:String)  {
 
- class User constructor(fullname: String ,email:String,tel:String) {
-
-    val fullname: String= fullname
-    val email: String= email
-    val tel: String= tel
-
-
+    constructor():this("","","","","","ASDASD")
 
 }

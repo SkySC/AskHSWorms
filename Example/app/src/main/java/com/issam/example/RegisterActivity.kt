@@ -3,34 +3,38 @@ package com.issam.askworms_demo1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.annotation.NonNull
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.issam.example.R
 import com.issam.example.User
-import java.util.regex.Pattern
+
 
 class RegisterActivity : AppCompatActivity() {
 
 
     private lateinit var auth: FirebaseAuth
+    private val firestoreInstance : FirebaseFirestore by lazy {
+        FirebaseFirestore.getInstance()
+    }
     lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         auth = Firebase.auth
+
+
         lateinit var btnRegister: Button
         btnRegister= findViewById(R.id.btnRegister)
         progressBar= findViewById(R.id.progressBar)
@@ -88,8 +92,16 @@ class RegisterActivity : AppCompatActivity() {
                     var user = User(
                         editTextName.text.toString(),
                         editTextEmail.text.toString(),
-                        editPhone.text.toString()
+                        editPhone.text.toString(),
+                        editPassword.text.toString(),
+                        "",
+                        ""
                     )
+                    // Für Database
+                    val currentUserDocRef  : DocumentReference
+                    currentUserDocRef = firestoreInstance.collection("users").document(auth.currentUser.uid.toString())
+                    currentUserDocRef.set(user)
+                    
                     FirebaseDatabase.getInstance().getReference("Users")
                         .child(FirebaseAuth.getInstance().getCurrentUser().uid)
                         .setValue(user).addOnCompleteListener(OnCompleteListener {
