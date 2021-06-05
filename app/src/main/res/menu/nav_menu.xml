@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+                android:id="@+id/home"
+                android:title="Feed"
+                android:icon="@drawable/home_icon"
+            />
+        <item
+            android:id="@+id/forum"
+            android:title="Forum"
+            android:icon="@drawable/forum"
+            />
+        <item
+            android:id="@+id/todos"
+            android:title="To-Dos"
+            android:icon="@drawable/todolist"
+            />
+
+    </group>
+
+    <group>
+        <item
+            android:id="@+id/moodle"
+            android:title="Moodle"
+            android:icon="@drawable/moodle"
+            />
+        <item
+            android:id="@+id/lsf"
+            android:title="LSF"
+            android:icon="@drawable/lsf"
+            />
+        <item
+            android:id="@+id/webmailer"
+            android:title="Webmailer"
+            android:icon="@drawable/email"
+            />
+    </group>
+
+    <item android:title="Einstellungen">
+        <menu>
+            <item
+                android:id="@+id/profile"
+                android:title="Profile"
+                android:icon="@drawable/username"/>
+            <item
+                android:id="@+id/abmelden"
+                android:title="Abmelden"
+                android:icon="@drawable/profile"/>
+        </menu>
+    </item>
+</menu>
