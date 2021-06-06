@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AskWorms_demo1"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NewsContent"></activity>
+        <activity android:name=".ContenuNote"></activity>
+        <activity android:name=".NewsContent" />
         <activity android:name=".importActivity.ForumActivity" />
         <activity android:name=".importActivity.NotizenActivity" />
         <activity android:name=".importActivity.FeedsActivity" />

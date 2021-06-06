@@ -21,5 +21,6 @@
     <color name="toolbar_notizen">#c00606</color>
     <color name="toolbar_feeds">#1f3658</color>
     <color name="grau">#efecec</color>
+    <color name="rotbar">#c50608</color>
 
 </resources>

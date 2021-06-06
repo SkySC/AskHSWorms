@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/okk"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgrot"
-    android:orientation="vertical"
-    tools:context=".importActivity.ForumActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -67,6 +67,7 @@
             android:id="@+id/userImage"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:clickable="true"
             android:layout_alignParentRight="true"
             android:background="@drawable/dozent"/>
 
@@ -95,7 +96,7 @@
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif-black"
-                    android:textSize="30dp"
+                    android:textSize="27dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="200dp"
                     android:gravity="center"
@@ -111,9 +112,33 @@
             </RelativeLayout>
 
         </LinearLayout>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="50dp"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="120dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@id/add"
+                    android:clickable="true"
+                    android:layout_width="50dp"
+                    android:contextClickable="true"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/iconaddok"/>
+            </RelativeLayout>
+        </LinearLayout>
     </RelativeLayout>
 
-
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:id="@+id/note_list_view"/>
 </LinearLayout>
-
