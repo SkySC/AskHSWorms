@@ -248,10 +248,6 @@ class NotizenActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
     override fun onStart() {
         super.onStart()
-<<<<<<< HEAD
-=======
-
->>>>>>> 8350a4ba44bf4f7447598790dc08e0b36d8a9a5c
         mRef?.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
                 mNoteList?.clear()
@@ -268,11 +264,7 @@ class NotizenActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
     fun getCurrentDate(): String {
         val calendar = Calendar.getInstance()
-<<<<<<< HEAD
         val mdformat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'",Locale.GERMANY)
-=======
-        val mdformat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
->>>>>>> 8350a4ba44bf4f7447598790dc08e0b36d8a9a5c
         val strDate = mdformat.format(calendar.time)
         return strDate.toString()
     }
