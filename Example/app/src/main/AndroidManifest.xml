@@ -15,8 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AskWorms_demo1"
         android:usesCleartextTraffic="true">
+<<<<<<< HEAD
         <activity android:name=".FragenActivity"></activity>
         <activity android:name=".ContenuNote" />
+=======
+        <activity android:name=".ContenuNote"></activity>
+>>>>>>> 8350a4ba44bf4f7447598790dc08e0b36d8a9a5c
         <activity android:name=".NewsContent" />
         <activity android:name=".importActivity.ForumActivity" />
         <activity android:name=".importActivity.NotizenActivity" />
