@@ -46,4 +46,9 @@
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:paddingLeft">5dp</item>
     </style>
+    <style name="addFrage" parent="viewParent">
+        <item name="android:background">@drawable/button_background_grun</item>
+        <item name="android:textColor">@color/whiteTextColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

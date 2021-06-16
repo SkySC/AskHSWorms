@@ -55,6 +55,10 @@ class ForumActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelec
         userImage= findViewById(R.id.userImage)
         nameUser= findViewById(R.id.nameUser)
 
+        informatik.setOnClickListener {
+            startActivity(Intent(applicationContext , FragenActivity::class.java))
+
+        }
 
 
       //  logRecyclerView()

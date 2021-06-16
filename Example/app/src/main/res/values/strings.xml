@@ -39,6 +39,7 @@
     <string name="hello_blank_fragment">Fragment Notes</string>
     <string name="hello_fragment_forum">Fragment Forum</string>
     <string name="hello_fragment_feed">Fragment Feeds</string>
+    <string name="random_string">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ligula ipsum, tristique eu lectus at, posuere pretium lorem</string>
 
 
 </resources>
