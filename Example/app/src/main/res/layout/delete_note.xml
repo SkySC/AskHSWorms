@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/delete_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:padding="10dp"
-        android:hint="Titel" />
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp" />
 
     <EditText
         android:id="@+id/delete_note"
@@ -22,36 +19,34 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
-        android:padding = "15dp"
-        android:lines="4"
-        android:hint="Schreib mal hier deine Notizen" />
+        android:lines="4" />
 
-         <LinearLayout
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_gravity="center"
-             android:orientation="horizontal">
-             <Button
-                 android:id="@+id/btnDeletNote"
-                 android:layout_width="120dp"
-                 android:layout_height="wrap_content"
-                 android:textSize="14dp"
-                 android:layout_marginTop="10dp"
-                 android:textAllCaps="false"
-                 android:layout_marginEnd="20dp"
-                 android:textColor="@color/colorWhite"
-                 android:background="@color/rotbar"
-                 android:text="Löschen" />
-             <Button
-                 android:id="@+id/btnUpdateNote"
-                 android:layout_width="120dp"
-                 android:layout_height="wrap_content"
-                 android:textSize="14dp"
-                 android:layout_marginTop="10dp"
-                 android:textAllCaps="false"
-                 android:layout_marginBottom="20dp"
-                 android:textColor="@color/colorPrimary"
-                 android:background="@color/sucess"
-                 android:text="Update" />
-         </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnDeletNote"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/rotbar"
+            android:text="Löschen"
+            android:textColor="@color/colorWhite"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnUpdateNote"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/sucess"
+            android:text="Erneuern"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14dp" />
+    </LinearLayout>
 </LinearLayout>

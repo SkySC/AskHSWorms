@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/okk"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
+        style="@style/Theme.AppCompat.Light"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Theme.AppCompat.Light">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar1"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/Theme.AppCompat.Light"
             android:background="@color/toolbar_feeds"
-            >
-                <LinearLayout
-                    android:layout_width="match_parent"
+            app:popupTheme="@style/Theme.AppCompat.Light">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Hochschule Worms"
-                        android:textSize="20sp"
-                        android:textColor="@color/whiteTextColor"/>
-                </LinearLayout>
-
+                    android:layout_gravity="center"
+                    android:text="@string/app_name"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="20sp" />
+            </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
-
     </com.google.android.material.appbar.AppBarLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,82 +46,82 @@
             android:id="@+id/hallo_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hallo, "
+            android:text="Hallo"
             android:textColor="@color/whiteTextColor"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/nameUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/whiteTextColor"
             android:layout_below="@+id/hallo_text"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"
             android:fontFamily="sans-serif-black"
-            android:textSize="26dp"/>
+            android:text=""
+            android:textColor="@color/whiteTextColor"
+            android:textSize="26dp"
+            android:textStyle="bold" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userImage"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:clickable="true"
+
             android:layout_alignParentRight="true"
-            android:background="@drawable/dozent"/>
+            android:background="@drawable/dozent"
+            android:clickable="true" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:orientation="horizontal">
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@id/left"
-                    android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
                     android:layout_alignParentLeft="true"
-                    android:src="@drawable/lefticon"/>
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/lefticon" />
+
                 <TextView
                     android:id="@+id/neuigikeiten"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Neuigkeiten"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/hs_farbe"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-black"
-                    android:textSize="27dp"
+                    android:layout_centerInParent="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="200dp"
+                    android:fontFamily="sans-serif-black"
                     android:gravity="center"
-                    android:layout_centerInParent="true"/>
+                    android:text="Aktuelles"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="27dp"
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:id="@id/right"
-                    android:clickable="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/rechticon"/>
+                    android:clickable="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/rechticon" />
             </RelativeLayout>
-
         </LinearLayout>
-
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mRecyclerView"
-        android:layout_marginTop="22dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:layout_height="match_parent"
+        android:layout_marginTop="22dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/recycler_view_item" />
-
 </LinearLayout>

@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="220dp"
-    android:padding="16dp"
+    android:background="@color/hs_farbe_hell"
     android:gravity="bottom"
-    android:background="@color/hs_farbe_hell">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_bild_home"
         android:layout_width="356px"
         android:layout_height="356px"
-        android:src="@drawable/dozent"
-       />
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/dozent" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome Back"
-        android:textSize="20sp"
-        android:textColor="@color/whiteTextColor"/>
+        android:text="Navigation"
+        android:textColor="@color/whiteTextColor"
+        android:textSize="20sp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hallouser"
-        android:textSize="15sp"
-        android:textColor="@color/whiteTextColor"/>
+        android:textColor="@color/whiteTextColor"
+        android:textSize="15sp" />
 </LinearLayout>

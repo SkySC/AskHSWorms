@@ -4,38 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.issam.askworms_demo1.RegisterActivity"
     android:layout_gravity="center"
     android:background="@color/hs_farbe"
     android:focusableInTouchMode="true"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context="com.issam.askworms_demo1.RegisterActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="30dp"
             android:orientation="vertical"
             android:padding="20dp">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:width="150dp"
-                    android:text="Hie sind deine erste Schritte bei Uns!"
-                    android:textColor="@color/whiteTextColor"/>
+                    android:text="Mache deine ersten Schritte bei uns!"
+                    android:textColor="@color/whiteTextColor" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_login_hero"/>
+                    android:src="@drawable/ic_login_hero" />
             </RelativeLayout>
 
             <androidx.cardview.widget.CardView
@@ -44,11 +48,13 @@
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/whiteTextColor"
                 app:cardCornerRadius="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputName"
                         style="@style/parent"
@@ -59,9 +65,9 @@
                             style="@style/modifiedEditText"
                             android:hint="Name"
                             android:inputType="textPersonName"
-                            android:maxLines="1"/>
-
+                            android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputEmail"
                         style="@style/parent"
@@ -72,9 +78,22 @@
                             style="@style/modifiedEditText"
                             android:hint="@string/login_email_hint"
                             android:inputType="textEmailAddress"
-                            android:maxLines="1"/>
-
+                            android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textPhone"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/editPhone"
+                            style="@style/modifiedEditText"
+                            android:hint="Telefon"
+                            android:inputType="phone"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputPassword"
                         style="@style/parent"
@@ -85,36 +104,25 @@
                             style="@style/modifiedEditText"
                             android:hint="@string/login_password_hint"
                             android:inputType="textPassword"
-                            android:maxLines="1"/>
-
+                            android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textPhone"
-                        style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin">
 
-                        <EditText
-                            android:id="@+id/editPhone"
-                            style="@style/modifiedEditText"
-                            android:hint="Tel. Nummer"
-                            android:inputType="phone"
-                            android:maxLines="1"/>
-                    </com.google.android.material.textfield.TextInputLayout>
                     <Button
-                       android:id="@+id/btnRegister"
+                        android:id="@+id/btnRegister"
                         style="@style/loginButton"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:text="Regestrieren"
-                        android:padding="6dp"/>
+                        android:padding="6dp"
+                        android:text="Registrieren" />
+
                     <TextView
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:text="Du hast schon einen Konto bei uns!"
+                        android:text="Du hast schon ein Konto bei uns?"
                         android:textAlignment="center"
                         android:textColor="@color/hs_farbe_hell"
                         android:textSize="17sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -129,22 +137,23 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="3"
-                    android:background="@color/whiteTextColor"/>
+                    android:background="@color/whiteTextColor" />
+
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
+                    android:text="@string/anderemethode"
                     android:textAlignment="center"
                     android:textColor="@color/whiteTextColor"
-                    android:text="@string/anderemethode"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp" />
+
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="3"
-                    android:background="@color/whiteTextColor"/>
-
+                    android:background="@color/whiteTextColor" />
             </LinearLayout>
 
             <LinearLayout
@@ -153,36 +162,39 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="30dp"
                 android:gravity="center">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_facebook"/>
+                    android:src="@drawable/ic_facebook" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/ic_google_plus"/>
+                    android:src="@drawable/ic_google_plus" />
             </LinearLayout>
-
-
         </LinearLayout>
     </ScrollView>
 
     <View
         android:layout_width="11dp"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
-        android:background="@drawable/ic_side_bg"/>
+        android:background="@drawable/ic_side_bg" />
+
     <ImageView
+        android:id="@+id/rjaa"
+        android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"
         android:layout_marginRight="11dp"
+        android:layout_marginBottom="30dp"
         android:adjustViewBounds="false"
         android:src="@drawable/ic_back_img" />
 
@@ -192,13 +204,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        tools:ignore="MissingConstraints"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-
-
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 </RelativeLayout>

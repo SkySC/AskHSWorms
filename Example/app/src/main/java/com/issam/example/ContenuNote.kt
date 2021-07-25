@@ -1,8 +1,8 @@
 package com.issam.example
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.issam.example.importActivity.NotizenActivity
 import kotlinx.android.synthetic.main.activity_contenu_note.*
 

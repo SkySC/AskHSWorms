@@ -20,8 +20,6 @@
         <activity android:name=".NewsContent" />
         <activity android:name=".importActivity.ForumActivity" />
         <activity android:name=".importActivity.NotizenActivity" />
-        <activity android:name=".importActivity.FeedsActivity" />
-        <activity android:name=".ContentMainActivity" />
         <activity android:name=".PasswordDone" />
         <activity
             android:name=".ForgotPassword"
@@ -33,10 +31,8 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

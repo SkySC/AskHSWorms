@@ -11,69 +11,63 @@
         android:id="@+id/toolbaar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/grau"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/rjaa"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:clickable="true"
             android:scaleType="fitXY"
-            android:src="@drawable/back"  />
+            android:src="@drawable/back" />
 
         <TextView
             android:id="@+id/titleNews"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:paddingLeft="50dp"
             android:text="Lorem Ipsum"
-            android:textAlignment="center"
-            android:gravity="center"/>
-
+            android:textAlignment="center" />
     </androidx.appcompat.widget.Toolbar>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbaar"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/newsbild" />
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_below="@+id/toolbaar"
-          android:orientation="vertical"
-          tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/contenuas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorWhite"
+            android:padding="15dp"
+            android:text="Lorem Ipsum is sim"
+            android:textAlignment="textStart" />
 
-          <ImageView
-              android:layout_width="wrap_content"
-              android:layout_height="300dp"
-              android:layout_marginTop="10dp"
-              android:src="@drawable/newsbild"
-              android:layout_gravity="center"
-                 />
-
-          <TextView
-              android:id="@+id/contenuas"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:padding="15dp"
-              android:text="Lorem Ipsum is sim"
-              android:layout_marginTop="10dp"
-              android:textAlignment="textStart"
-              android:background="@color/colorWhite" />
-          <TextView
-              android:id="@+id/date"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="20.01.2021"
-              android:paddingLeft="30dp"
-              android:paddingRight="30dp"
-              android:gravity="right"
-              android:layout_gravity="right"
-              android:layout_marginTop="3dp"
-              android:background="@color/colorWhite" />
-      </LinearLayout>
-
-
-
-
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="3dp"
+            android:background="@color/colorWhite"
+            android:gravity="right"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="20.01.2021" />
+    </LinearLayout>
 </RelativeLayout>

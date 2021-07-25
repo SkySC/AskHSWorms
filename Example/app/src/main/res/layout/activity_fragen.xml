@@ -5,39 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grau"
+    android:orientation="vertical"
     tools:context=".NewsContent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbaar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/grun"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
-            android:id="@+id/rjaa"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:clickable="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/back"  />
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/titleNews"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="50dp"
-            android:text="Informatik "
-            android:textColor="#ffffff"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:gravity="center"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/rjaa"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/titleNews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Angewandte Informatik"
+                android:textColor="#ffffff"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,18 +51,16 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/fragenforum"
+            android:layout_height="230dp"
             android:layout_gravity="center"
-            />
+            android:layout_marginTop="10dp"
+            android:src="@drawable/fragenforum" />
+
         <ListView
             android:id="@+id/frage_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
         </ListView>
-
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -73,6 +74,4 @@
         android:clickable="true"
         app:backgroundTint="@color/grun"
         app:srcCompat="@drawable/add" />
-
-
 </RelativeLayout>

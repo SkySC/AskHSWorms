@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -8,29 +8,30 @@
         android:id="@+id/fragentitel_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="Titel"
-        android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:hint="Titel der Frage"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:hint="Titel der Frage"
+        android:text="" />
+
     <EditText
         android:id="@+id/fragencotenu_input"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:ems="10"
-        android:text="Frage"
-        android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:hint="Formulieren Sie bitte Ihre Frage gut ,damit die anderen es verstehen können und Sie auch eine gute Antwort bekommen."/>
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:hint="Fasse dich möglichst kurz und achte auf eine gute und verständliche Formulierung deiner Frage"
+        android:text="" />
+
     <Button
         android:id="@+id/btnSaveFrage"
-        style="@style/addFrage"
+        style="@style/addNotiz"
         android:layout_gravity="center_horizontal"
         android:padding="6dp"
-        android:paddingTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
-        android:paddingBottom="30dp"
-        android:text="stellen"/>
+        android:text="Frage stellen" />
 </LinearLayout>
