@@ -10,7 +10,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
-import com.issam.example.com.issam.example.Frage
+import com.issam.example.model.Frage
 import kotlinx.android.synthetic.main.activity_fragen.*
 import kotlinx.android.synthetic.main.add_frage.view.*
 import java.text.SimpleDateFormat

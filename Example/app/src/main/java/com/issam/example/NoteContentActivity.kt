@@ -3,11 +3,12 @@ package com.issam.example
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.issam.example.importActivity.NotizenActivity
 import kotlinx.android.synthetic.main.activity_contenu_note.*
 
-class ContenuNote : AppCompatActivity() {
+class NoteContentActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contenu_note)
 
@@ -20,7 +21,7 @@ class ContenuNote : AppCompatActivity() {
         date.text = time
 
         rjaa.setOnClickListener {
-            startActivity(Intent(applicationContext , NotizenActivity::class.java))
+            startActivity(Intent(applicationContext , NoteActivity::class.java))
         }
     }
 }

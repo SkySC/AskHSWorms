@@ -6,7 +6,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.issam.askworms_demo1.LoginActivity
 
-class PasswordDone : AppCompatActivity() {
+class PasswordDoneActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

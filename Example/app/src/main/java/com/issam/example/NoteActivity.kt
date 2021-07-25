@@ -1,4 +1,4 @@
-package com.issam.example.importActivity
+package com.issam.example
 
 import android.content.Intent
 import android.net.Uri
@@ -21,8 +21,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.issam.askworms_demo1.LoginActivity
 import com.issam.example.*
-import com.issam.example.R
 import com.issam.example.com.issam.example.glide.GlideApp
+import com.issam.example.com.issam.example.model.Note
+import com.issam.example.adapter.NoteAdapter
+import com.issam.example.com.issam.example.model.User
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.add_note.view.*
 import kotlinx.android.synthetic.main.delete_note.view.*
@@ -31,7 +33,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class NotizenActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
+class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var btnRight: ImageView
     lateinit var btnLeft: ImageView
@@ -80,7 +82,7 @@ class NotizenActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
                 var title = mynote.title
                 var note = mynote.note
                 var tarikh = mynote.timestamp
-                var noteIntent = Intent(this@NotizenActivity , ContenuNote::class.java)
+                var noteIntent = Intent(this@NoteActivity , NoteContentActivity::class.java)
 
                 noteIntent.putExtra("Title_Key" , title)
                 noteIntent.putExtra("Note_Key" , note)
@@ -96,7 +98,7 @@ class NotizenActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
                 position: Int ,
                 id: Long
             ): Boolean {
-                val alertBuilder = AlertDialog.Builder(this@NotizenActivity)
+                val alertBuilder = AlertDialog.Builder(this@NoteActivity)
                 val view = layoutInflater.inflate(R.layout.delete_note , null)
                 val alertDialog = alertBuilder.create()
 
@@ -209,7 +211,7 @@ class NotizenActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
             }
 
             R.id.todos -> {
-                startActivity(Intent(applicationContext , NotizenActivity::class.java))
+                startActivity(Intent(applicationContext , NoteActivity::class.java))
             }
 
             R.id.moodle -> {

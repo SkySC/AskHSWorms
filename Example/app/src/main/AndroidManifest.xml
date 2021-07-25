@@ -16,13 +16,13 @@
         android:theme="@style/Theme.AskWorms_demo1"
         android:usesCleartextTraffic="true">
         <activity android:name=".FragenActivity"></activity>
-        <activity android:name=".ContenuNote" />
-        <activity android:name=".NewsContent" />
-        <activity android:name=".importActivity.ForumActivity" />
-        <activity android:name=".importActivity.NotizenActivity" />
-        <activity android:name=".PasswordDone" />
+        <activity android:name=".NoteContentActivity" />
+        <activity android:name=".NewsContentActivity" />
+        <activity android:name=".ForumActivity" />
+        <activity android:name=".NoteActivity" />
+        <activity android:name=".PasswordDoneActivity" />
         <activity
-            android:name=".ForgotPassword"
+            android:name=".PasswordForgotActivity"
             android:label="@string/title_activity_forgot_password" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".WelcomeActivity" />

@@ -1,4 +1,4 @@
-package com.issam.example
+package com.issam.example.com.issam.example.model
 
 class Note {
 

@@ -1,4 +1,4 @@
-package com.issam.example.com.issam.example
+package com.issam.example.model
 
 data class Frage(
     val id: String ,

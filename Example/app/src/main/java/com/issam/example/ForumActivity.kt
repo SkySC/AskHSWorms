@@ -1,4 +1,4 @@
-package com.issam.example.importActivity
+package com.issam.example
 
 import android.content.Intent
 import android.net.Uri
@@ -16,8 +16,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.issam.askworms_demo1.LoginActivity
-import com.issam.example.*
 import com.issam.example.com.issam.example.glide.GlideApp
+import com.issam.example.com.issam.example.model.User
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.fragment_forum.*
 
@@ -79,7 +79,7 @@ class ForumActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelec
         }
 
         btnLeft.setOnClickListener {
-            startActivity(Intent(applicationContext , NotizenActivity::class.java))
+            startActivity(Intent(applicationContext , NoteActivity::class.java))
         }
 
         drawerLayout = findViewById(R.id.drawerLayout)
@@ -108,7 +108,7 @@ class ForumActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelec
             }
 
             R.id.todos -> {
-                startActivity(Intent(applicationContext , NotizenActivity::class.java))
+                startActivity(Intent(applicationContext , NoteActivity::class.java))
             }
 
             R.id.moodle -> {

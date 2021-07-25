@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.issam.askworms_demo1.LoginActivity
-import com.issam.askworms_demo1.adapter.OnBoardingViewPagerAdapter
-import com.issam.askworms_demo1.model.OnBoardingData
+import com.issam.askworms_demo1.adapter.OnboardingViewPagerAdapter
+import com.issam.askworms_demo1.model.OnboardingData
 
 open class MainActivity : AppCompatActivity() {
 
-    var onBoardingViewPagerAdapter: OnBoardingViewPagerAdapter? = null
+    var onboardingViewPagerAdapter: OnboardingViewPagerAdapter? = null
     var tabLayout: TabLayout? = null
     var onBoardingViewPager: ViewPager? = null
     var next: TextView? = null
@@ -37,23 +37,23 @@ open class MainActivity : AppCompatActivity() {
         next = findViewById(R.id.next);
         // Add data to our model Class
 
-        val onBoardingData: MutableList<OnBoardingData> = ArrayList()
+        val onBoardingData: MutableList<OnboardingData> = ArrayList()
         onBoardingData.add(
-            OnBoardingData(
+            OnboardingData(
                 title = "HEADING" ,
                 desc = "Corem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." ,
                 R.drawable.icon1
             )
         )
         onBoardingData.add(
-            OnBoardingData(
+            OnboardingData(
                 title = "HEADING" ,
                 desc = "Corem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." ,
                 R.drawable.icon2
             )
         )
         onBoardingData.add(
-            OnBoardingData(
+            OnboardingData(
                 title = "HEADING" ,
                 desc = "Corem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." ,
                 R.drawable.icon3
@@ -93,11 +93,11 @@ open class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun setOnBoardingViewPagerAdapter(onBoardingData: List<OnBoardingData>) {
+    private fun setOnBoardingViewPagerAdapter(onBoardingData: List<OnboardingData>) {
 
         onBoardingViewPager = findViewById(R.id.screenPager)
-        onBoardingViewPagerAdapter = OnBoardingViewPagerAdapter(this , onBoardingData)
-        onBoardingViewPager!!.adapter = onBoardingViewPagerAdapter
+        onboardingViewPagerAdapter = OnboardingViewPagerAdapter(this , onBoardingData)
+        onBoardingViewPager!!.adapter = onboardingViewPagerAdapter
         tabLayout?.setupWithViewPager(onBoardingViewPager)
     }
 

@@ -22,10 +22,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.storage.FirebaseStorage
 import com.issam.askworms_demo1.LoginActivity
-import com.issam.example.com.issam.example.adapter.ChatItems
+import com.issam.example.com.issam.example.adapter.NewsAdapter
 import com.issam.example.com.issam.example.glide.GlideApp
-import com.issam.example.importActivity.ForumActivity
-import com.issam.example.importActivity.NotizenActivity
+import com.issam.example.com.issam.example.model.News
+import com.issam.example.com.issam.example.model.User
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.OnItemClickListener
 import com.xwray.groupie.Section
@@ -86,7 +86,7 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
         btnLeft = findViewById(R.id.left)
 
         btnRight.setOnClickListener {
-            startActivity(Intent(applicationContext , NotizenActivity::class.java))
+            startActivity(Intent(applicationContext , NoteActivity::class.java))
         }
 
         btnLeft.setOnClickListener {
@@ -123,7 +123,7 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
             }
 
             R.id.todos -> {
-                startActivity(Intent(applicationContext , NotizenActivity::class.java))
+                startActivity(Intent(applicationContext , NoteActivity::class.java))
             }
 
             R.id.moodle -> {
@@ -171,7 +171,7 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
                 val items = mutableListOf<Item>()
                 querySnapshot!!.documents.forEach {
-                    items.add(ChatItems(it.toObject(News::class.java)!! , this))
+                    items.add(NewsAdapter(it.toObject(News::class.java)!! , this))
 
                 }
                 onListen(items)
@@ -191,13 +191,13 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
     }
 
     val onItemClick = OnItemClickListener { item , view ->
-        if (item is ChatItems) {
+        if (item is NewsAdapter) {
             item.news.titleNews
             item.news.ContenuNews
             item.news.mNewsPhoto
             item.news.dateNews
 
-            val intent = Intent(applicationContext , NewsContent::class.java)
+            val intent = Intent(applicationContext , NewsContentActivity::class.java)
 
             intent.putExtra("title" , item.news.titleNews)
             intent.putExtra("contenu" , item.news.ContenuNews)

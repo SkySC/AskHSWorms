@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.issam.askworms_demo1.LoginActivity
 
-class ForgotPassword : AppCompatActivity() {
+class PasswordForgotActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     lateinit var resetPasswordBtn: Button
@@ -40,8 +40,8 @@ class ForgotPassword : AppCompatActivity() {
     }
 
     private fun resetPassword() {
-        lateinit var email: String
-        email = emailEditText.text.toString().trim()
+
+        var email = emailEditText.text.toString().trim()
 
         if (email.isEmpty()) {
             emailEditText.setError("Das Feld E-Mail ist leer!")
@@ -64,7 +64,7 @@ class ForgotPassword : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
                 progressBar.setVisibility(View.GONE)
-                startActivity(Intent(applicationContext , PasswordDone::class.java))
+                startActivity(Intent(applicationContext , PasswordDoneActivity::class.java))
                 finish()
             } else {
                 Toast.makeText(

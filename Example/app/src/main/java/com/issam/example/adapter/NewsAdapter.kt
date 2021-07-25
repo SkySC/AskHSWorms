@@ -2,14 +2,14 @@ package com.issam.example.com.issam.example.adapter
 
 import android.content.Context
 import com.google.firebase.storage.FirebaseStorage
-import com.issam.example.News
+import com.issam.example.com.issam.example.model.News
 import com.issam.example.R
 import com.issam.example.com.issam.example.glide.GlideApp
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.recycler_view_item.*
 
-class ChatItems(val news: News , val context: Context) : Item() {
+class NewsAdapter(val news: News , val context: Context) : Item() {
 
     private val storageInstance: FirebaseStorage by lazy {
         FirebaseStorage.getInstance()

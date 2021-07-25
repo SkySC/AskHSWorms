@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.issam.example.ForgotPassword
+import com.issam.example.PasswordForgotActivity
 import com.issam.example.R
 import com.issam.example.WelcomeActivity
 
@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
         password_reset.setOnClickListener {
-            startActivity(Intent(applicationContext , ForgotPassword::class.java))
+            startActivity(Intent(applicationContext , PasswordForgotActivity::class.java))
             finish()
         }
 
@@ -121,5 +121,5 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun updateUI(currentUser: FirebaseUser?) { }
+    fun updateUI(currentUser: FirebaseUser?) {}
 }

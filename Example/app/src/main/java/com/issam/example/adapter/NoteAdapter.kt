@@ -1,10 +1,12 @@
-package com.issam.example
+package com.issam.example.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import com.issam.example.R
+import com.issam.example.com.issam.example.model.Note
 import kotlinx.android.synthetic.main.notes_items.view.*
 
 class NoteAdapter(context: Context , noteList: ArrayList<Note>) :

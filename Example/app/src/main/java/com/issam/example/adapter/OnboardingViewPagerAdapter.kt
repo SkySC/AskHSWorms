@@ -7,28 +7,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import com.issam.askworms_demo1.model.OnBoardingData
+import com.issam.askworms_demo1.model.OnboardingData
 import com.issam.example.R
 
-class OnBoardingViewPagerAdapter(
+class OnboardingViewPagerAdapter(
     private var context: Context ,
-    private var onBoardingDataList: List<OnBoardingData>
+    private var onBoardingList: List<OnboardingData>
 ) : PagerAdapter() {
 
-    override fun getCount(): Int {
+    override fun getCount(): Int = onBoardingList.size
 
-        return onBoardingDataList.size
-    }
+    override fun isViewFromObject(view: View , `object`: Any): Boolean = view == `object`
 
-    override fun isViewFromObject(view: View , `object`: Any): Boolean {
-
-        return view == `object`
-    }
-
-    override fun destroyItem(container: ViewGroup , position: Int , `object`: Any) {
-
-        container.removeView(`object` as View)
-    }
+    override fun destroyItem(container: ViewGroup , position: Int , `object`: Any) = container.removeView(`object` as View)
 
     override fun instantiateItem(container: ViewGroup , position: Int): Any {
 
@@ -42,9 +33,9 @@ class OnBoardingViewPagerAdapter(
         title = view.findViewById(R.id.slide_heading)
         desc = view.findViewById(R.id.slide_desc)
 
-        imageView.setImageResource(onBoardingDataList[position].imgUrl)
-        title.text = onBoardingDataList[position].title
-        desc.text = onBoardingDataList[position].desc
+        imageView.setImageResource(onBoardingList[position].imgUrl)
+        title.text = onBoardingList[position].title
+        desc.text = onBoardingList[position].desc
 
         container.addView(view)
 
