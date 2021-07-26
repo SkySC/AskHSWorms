@@ -74,13 +74,8 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             showDialogAddNote()
         }
 
-        note_list_view.onItemClickListener = object : AdapterView.OnItemClickListener {
-            override fun onItemClick(
-                parent: AdapterView<*>? ,
-                view: View? ,
-                position: Int ,
-                id: Long
-            ) {
+        note_list_view.onItemClickListener =
+            AdapterView.OnItemClickListener { parent , view , position , id ->
                 var mynote = mNoteList?.get(position)!!
                 var title = mynote.title
                 var note = mynote.note
@@ -92,15 +87,9 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                 noteIntent.putExtra("Time_Key" , tarikh)
                 startActivity(noteIntent)
             }
-        }
 
-        note_list_view.onItemLongClickListener = object : AdapterView.OnItemLongClickListener {
-            override fun onItemLongClick(
-                parent: AdapterView<*>? ,
-                view: View? ,
-                position: Int ,
-                id: Long
-            ): Boolean {
+        note_list_view.onItemLongClickListener =
+            AdapterView.OnItemLongClickListener { parent , view , position , id ->
                 val alertBuilder = AlertDialog.Builder(this@NoteActivity)
                 val view = layoutInflater.inflate(R.layout.delete_note , null)
                 val alertDialog = alertBuilder.create()
@@ -126,14 +115,13 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
                 view.btnDeletNote.setOnClickListener {
                     mRef?.child(myNote.id.toString())?.removeValue()
-                    Toast.makeText(baseContext , "Die Notizen ist gelöscht" , Toast.LENGTH_SHORT)
+                    Toast.makeText(baseContext , "Die Notiz wurde gelöscht" , Toast.LENGTH_SHORT)
                         .show()
                     alertDialog.dismiss()
                 }
 
-                return false
+                false
             }
-        }
 
         firestoreInstance.collection("users")
             .document(FirebaseAuth.getInstance().currentUser?.uid.toString())
@@ -177,6 +165,7 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     }
 
     fun showDialogAddNote() {
+
         val alertBuilder = AlertDialog.Builder(this)
         val view = layoutInflater.inflate(R.layout.add_note , null)
         alertBuilder.setView(view)
@@ -203,6 +192,7 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
         when (item.itemId) {
             R.id.home -> {
                 startActivity(Intent(applicationContext , WelcomeActivity::class.java))
@@ -253,6 +243,7 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     }
 
     override fun onStart() {
+
         super.onStart()
         mRef?.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
@@ -272,6 +263,7 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     }
 
     fun getCurrentDate(): String {
+
         val calendar = Calendar.getInstance()
         val mdformat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'" , Locale.GERMANY)
         val strDate = mdformat.format(calendar.time)

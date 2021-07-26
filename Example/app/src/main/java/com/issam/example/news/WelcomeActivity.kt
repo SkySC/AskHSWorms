@@ -82,7 +82,7 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
                         .load(storageInstance.getReference(user.profilBild))
                         .into(userImage)
                 } else {
-                    userImage.setImageResource(R.drawable.student)
+                    userImage.setImageResource(R.drawable.dozent)
                 }
             }
 

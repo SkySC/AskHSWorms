@@ -84,6 +84,7 @@ class ProfileActivity : AppCompatActivity() {
             userPassword = user.password
             userPower = user.userPower
             userBild = user.userPower
+
             if (user.profilBild.isNotEmpty()) {
                 GlideApp.with(this@ProfileActivity)
                     .load(storageInstance.getReference(user.profilBild))

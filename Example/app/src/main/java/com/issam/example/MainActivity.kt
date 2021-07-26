@@ -112,7 +112,7 @@ open class MainActivity : AppCompatActivity() {
 
         sharedPreferences = applicationContext.getSharedPreferences("pref" , Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-        editor.putBoolean("isOnBoardingCompleted" , false) // set to true after DEBUG
+        editor.putBoolean("isOnboardingCompleted" , true)
         editor.apply()
     }
 
@@ -120,6 +120,6 @@ open class MainActivity : AppCompatActivity() {
     private fun restorePrefData(): Boolean {
 
         sharedPreferences = applicationContext.getSharedPreferences("pref" , Context.MODE_PRIVATE)
-        return sharedPreferences!!.getBoolean("isOnBoardingCompleted" , false)
+        return sharedPreferences!!.getBoolean("isOnboardingCompleted" , false)
     }
 }

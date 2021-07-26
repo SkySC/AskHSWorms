@@ -24,6 +24,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerVertical="true"
+                android:background="@drawable/dozent"
                 android:contentDescription="@string/todo" />
 
             <TextView
