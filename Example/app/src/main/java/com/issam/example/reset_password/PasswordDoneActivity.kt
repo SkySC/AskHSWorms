@@ -1,10 +1,11 @@
-package com.issam.example
+package com.issam.example.reset_password
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.issam.askworms_demo1.LoginActivity
+import com.issam.example.R
 
 class PasswordDoneActivity : AppCompatActivity() {
 

@@ -15,17 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AskWorms_demo1"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FragenActivity"></activity>
-        <activity android:name=".NoteContentActivity" />
-        <activity android:name=".NewsContentActivity" />
-        <activity android:name=".ForumActivity" />
-        <activity android:name=".NoteActivity" />
-        <activity android:name=".PasswordDoneActivity" />
+        <activity android:name=".forum.FragenActivity"></activity>
+        <activity android:name=".notes.NoteContentActivity" />
+        <activity android:name=".news.NewsContentActivity" />
+        <activity android:name=".forum.ForumActivity" />
+        <activity android:name=".notes.NoteActivity" />
+        <activity android:name=".reset_password.PasswordDoneActivity" />
         <activity
-            android:name=".PasswordForgotActivity"
+            android:name=".reset_password.PasswordForgotActivity"
             android:label="@string/title_activity_forgot_password" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".news.WelcomeActivity" />
         <activity android:name="com.issam.askworms_demo1.RegisterActivity" />
         <activity android:name="com.issam.askworms_demo1.LoginActivity" />
         <activity android:name=".MainActivity">

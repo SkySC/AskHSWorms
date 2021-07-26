@@ -1,4 +1,4 @@
-package com.issam.example
+package com.issam.example.notes
 
 import android.content.Intent
 import android.net.Uri
@@ -25,12 +25,15 @@ import com.issam.example.com.issam.example.glide.GlideApp
 import com.issam.example.com.issam.example.model.Note
 import com.issam.example.adapter.NoteAdapter
 import com.issam.example.com.issam.example.model.User
+import com.issam.example.forum.ForumActivity
+import com.issam.example.news.WelcomeActivity
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.add_note.view.*
 import kotlinx.android.synthetic.main.delete_note.view.*
 import kotlinx.android.synthetic.main.fragment_notes.*
 import java.text.SimpleDateFormat
 import java.util.*
+import com.issam.example.R
 import kotlin.collections.ArrayList
 
 class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {

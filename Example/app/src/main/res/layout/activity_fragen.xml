@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/grau"
     android:orientation="vertical"
-    tools:context=".NewsContentActivity">
+    tools:context=".news.NewsContentActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbaar"

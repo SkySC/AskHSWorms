@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bggreen"
     android:orientation="vertical"
-    tools:context=".NoteActivity">
+    tools:context=".notes.NoteActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         style="@style/Theme.AppCompat.Light"

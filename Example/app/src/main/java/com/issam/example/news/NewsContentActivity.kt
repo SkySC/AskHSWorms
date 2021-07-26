@@ -1,7 +1,8 @@
-package com.issam.example
+package com.issam.example.news
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.issam.example.R
 import kotlinx.android.synthetic.main.activity_news_content.*
 
 class NewsContentActivity : AppCompatActivity() {

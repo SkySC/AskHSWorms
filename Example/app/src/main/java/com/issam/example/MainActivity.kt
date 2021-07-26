@@ -16,7 +16,7 @@ open class MainActivity : AppCompatActivity() {
 
     var onboardingViewPagerAdapter: OnboardingViewPagerAdapter? = null
     var tabLayout: TabLayout? = null
-    var onBoardingViewPager: ViewPager? = null
+    var onboardingViewPager: ViewPager? = null
     var next: TextView? = null
     var position = 0
     var sharedPreferences: SharedPreferences? = null
@@ -24,10 +24,11 @@ open class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
+        // check if on boarding has already been completed & skip it
         if (restorePrefData()) {
-            val i = Intent(applicationContext , LoginActivity::class.java)
-            startActivity(i)
+            // go to LoginActivity
+            startActivity(Intent(applicationContext , LoginActivity::class.java))
+            // terminating current Activity
             finish()
         }
 
@@ -35,55 +36,60 @@ open class MainActivity : AppCompatActivity() {
 
         tabLayout = findViewById(R.id.tab_indicator);
         next = findViewById(R.id.next);
-        // Add data to our model Class
 
-        val onBoardingData: MutableList<OnboardingData> = ArrayList()
-        onBoardingData.add(
+        // add data to our model class
+        val onboardingData: MutableList<OnboardingData> = ArrayList()
+        onboardingData.add(
             OnboardingData(
-                title = "HEADING" ,
-                desc = "Corem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." ,
+                title = getString(R.string.slide_heading_text1) ,
+                desc = getString(R.string.slide_desc_text1) ,
                 R.drawable.icon1
             )
         )
-        onBoardingData.add(
+
+        onboardingData.add(
             OnboardingData(
-                title = "HEADING" ,
-                desc = "Corem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." ,
+                title = getString(R.string.slide_heading_text2) ,
+                desc = getString(R.string.slide_desc_text2) ,
                 R.drawable.icon2
             )
         )
-        onBoardingData.add(
+
+        onboardingData.add(
             OnboardingData(
-                title = "HEADING" ,
-                desc = "Corem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged." ,
+                title = getString(R.string.slide_heading_text3) ,
+                desc = getString(R.string.slide_desc_text3) ,
                 R.drawable.icon3
             )
         )
 
-        setOnBoardingViewPagerAdapter(onBoardingData)
+        setOnboardingViewPagerAdapter(onboardingData)
 
-        position = onBoardingViewPager!!.currentItem
+        val lastTabPosition = onboardingData.size - 1
+        position = onboardingViewPager!!.currentItem
+
         next?.setOnClickListener {
-            if (position < onBoardingData.size) {
-                position++;
-                onBoardingViewPager!!.currentItem = position
-            }
 
-            if (position == onBoardingData.size) {
-                savePrefData()
-                val i = Intent(applicationContext , LoginActivity::class.java)
-                startActivity(i)
+            when (position) {
+                in 0 until lastTabPosition -> onboardingViewPager!!.currentItem = (++position)
+                // defines what happens after last tab
+                else -> {
+                    savePrefData()
+                    // go to LoginActivity after clicking 'Los geht's!'
+                    startActivity(Intent(applicationContext , LoginActivity::class.java))
+                }
             }
         }
-
+        // check if tab states has changed
         tabLayout!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            // active tab
             override fun onTabSelected(tab: TabLayout.Tab?) {
-
+                // get current tab position
                 position = tab!!.position
-                if (tab.position == onBoardingData.size - 1) {
-                    next!!.text = "Los geht!"
-                } else {
-                    next!!.text = "Nächste"
+                // change text at bottom right on the last page
+                when (tab.position) {
+                    lastTabPosition -> next!!.text = getString(R.string.los_gehts)
+                    else -> next!!.text = getString(R.string.naechste)
                 }
             }
 
@@ -93,25 +99,27 @@ open class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun setOnBoardingViewPagerAdapter(onBoardingData: List<OnboardingData>) {
+    private fun setOnboardingViewPagerAdapter(onboardingData: List<OnboardingData>) {
 
-        onBoardingViewPager = findViewById(R.id.screenPager)
-        onboardingViewPagerAdapter = OnboardingViewPagerAdapter(this , onBoardingData)
-        onBoardingViewPager!!.adapter = onboardingViewPagerAdapter
-        tabLayout?.setupWithViewPager(onBoardingViewPager)
+        onboardingViewPager = findViewById(R.id.screenPager)
+        onboardingViewPagerAdapter = OnboardingViewPagerAdapter(this , onboardingData)
+        onboardingViewPager!!.adapter = onboardingViewPagerAdapter
+        tabLayout?.setupWithViewPager(onboardingViewPager)
     }
 
+    // set flag in sharedPreferences
     private fun savePrefData() {
 
         sharedPreferences = applicationContext.getSharedPreferences("pref" , Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-        editor.putBoolean("isFirstTimeRun" , true)
+        editor.putBoolean("isOnBoardingCompleted" , false) // set to true after DEBUG
         editor.apply()
     }
 
+    // read flag from sharedPreferences
     private fun restorePrefData(): Boolean {
 
         sharedPreferences = applicationContext.getSharedPreferences("pref" , Context.MODE_PRIVATE)
-        return sharedPreferences!!.getBoolean("isFirstTimeRun" , false)
+        return sharedPreferences!!.getBoolean("isOnBoardingCompleted" , false)
     }
 }

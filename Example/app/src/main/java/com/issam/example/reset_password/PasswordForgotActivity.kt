@@ -1,4 +1,4 @@
-package com.issam.example
+package com.issam.example.reset_password
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.issam.askworms_demo1.LoginActivity
+import com.issam.example.R
 
 class PasswordForgotActivity : AppCompatActivity() {
 

@@ -10,9 +10,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.issam.example.PasswordForgotActivity
+import com.issam.example.reset_password.PasswordForgotActivity
 import com.issam.example.R
-import com.issam.example.WelcomeActivity
+import com.issam.example.news.WelcomeActivity
 
 class LoginActivity : AppCompatActivity() {
 

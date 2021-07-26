@@ -1,8 +1,28 @@
 <resources>
     <string name="app_name">AskHSWorms</string>
-    <string name="slide1_desc">orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</string>
-    <string name="slide1_heading">HEADING</string>
-    <string name="next">Nächste</string>
+    <string name="slide_desc_text1">
+        Willkommen zu AskHSWorms, einer Foren App für Studierende und Mitarbeiter der Hochschule Worms.
+        Diese App wurde im Rahmen einer Projektarbeit im Modul Entwicklung mobiler Anwendungen beim
+        Herrn Stephan Kurpjuweit von Issam Charef und Saleh Chaaban entwickelt.
+    </string>
+    <string name="slide_desc_text2">
+        AskHSWorms ist von der Idee her eine umfangreiche App.
+        Beachte bitte, dass aufgrund der begrenzten Zeit die uns in diesem Modul zur Verfügung stand,
+        manche Funktionen entweder nur beispielhaft, nur visuell oder gar nicht implementiert wurden.
+        Unsere App dient in dieser Version lediglich zu Illustrationszwecken.
+    </string>
+    <string name="slide_desc_text3">
+        Um alle verfügbaren Funktionen von AskHSWorms nutzen zu können,
+        solltest du dich in einem ersten Schritt bei uns registrieren.
+        Achte bitte darauf, dass du für die Verifizieurng deines Benutzers beim erstmaligen
+        Anmeldeversuch auch deinen Spam-Ordner überprüfst.
+    </string>
+    <string name="los_gehts">Los gehts!</string>
+    <string name="naechste">Nächste</string>
+    <string name="slide_heading_text1">AskHSWorms?</string>
+    <string name="slide_heading_text2">Disclaimer</string>
+    <string name="slide_heading_text3">Erste Schritte</string>
+    <string name="next_text">Nächste</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Passwort</string>
     <string name="anderemethode">Oder verwende eine andere Methode</string>
