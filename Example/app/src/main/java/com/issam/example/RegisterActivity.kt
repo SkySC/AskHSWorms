@@ -33,8 +33,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         auth = Firebase.auth
 
-        lateinit var btnRegister: Button
-        btnRegister = findViewById(R.id.btnRegister)
+        val btnRegister: Button = findViewById(R.id.btnRegister)
         progressBar = findViewById(R.id.progressBar)
 
         btnRegister.setOnClickListener {
@@ -49,43 +48,44 @@ class RegisterActivity : AppCompatActivity() {
 
     // Verification Methode !
     private fun signUpUser() {
-        lateinit var editTextName: EditText
-        lateinit var editTextEmail: EditText
-        lateinit var editPassword: EditText
-        lateinit var editPhone: EditText
 
-        editTextName = findViewById(R.id.editTextName)
-        editTextEmail = findViewById(R.id.editTextEmail)
-        editPassword = findViewById(R.id.editPassword)
-        editPhone = findViewById(R.id.editPhone)
+        val editTextName: EditText = findViewById(R.id.editTextName)
+        val editTextEmail: EditText = findViewById(R.id.editTextEmail)
+        val editPassword: EditText = findViewById(R.id.editPassword)
+        val editPhone: EditText = findViewById(R.id.editPhone)
 
         if (editTextName.text.toString().isEmpty()) {
             editTextName.error = "Das Feld Name ist leer!"
             editTextName.requestFocus()
+
             return
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(editTextEmail.text.toString()).matches()) {
             editTextEmail.error = "Ungültiges E-Mail Format!"
             editTextEmail.requestFocus()
+
             return
         }
 
         if (editPhone.text.toString().isEmpty()) {
             editPhone.error = "Das Feld Telefon ist leer!"
             editPhone.requestFocus()
+
             return
         }
 
         if (editPassword.text.toString().isEmpty()) {
             editPassword.error = "Das Feld Passwort ist leer!"
             editPassword.requestFocus()
+
             return
         }
 
         if (editPassword.text.toString().length < 6) {
             editPassword.error = "Dein Passwort braucht mindestens 6 Zeichen!"
             editPassword.requestFocus()
+
             return
         }
 
@@ -98,7 +98,7 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    var user = User(
+                    val user = User(
                         editTextName.text.toString() ,
                         editTextEmail.text.toString() ,
                         editPhone.text.toString() ,
@@ -107,8 +107,7 @@ class RegisterActivity : AppCompatActivity() {
                         ""
                     )
                     // Für Database
-                    val currentUserDocRef: DocumentReference
-                    currentUserDocRef = firestoreInstance.collection("users")
+                    val currentUserDocRef: DocumentReference = firestoreInstance.collection("users")
                         .document(auth.currentUser.uid)
                     currentUserDocRef.set(user)
 

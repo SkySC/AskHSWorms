@@ -10,9 +10,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.issam.example.reset_password.PasswordForgotActivity
 import com.issam.example.R
 import com.issam.example.news.WelcomeActivity
+import com.issam.example.reset_password.PasswordForgotActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -23,15 +23,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        lateinit var btnlogin: Button
-        lateinit var password_reset: TextView
-        lateinit var btnsignUp: ImageView
+        var btnlogin: Button = findViewById(R.id.btn_login)
+        var btnsignUp: ImageView = findViewById(R.id.btnRegistration)
+        var password_reset: TextView = findViewById(R.id.password_reset)
 
         progressBar = findViewById(R.id.progressBar)
         auth = FirebaseAuth.getInstance()
-        btnlogin = findViewById(R.id.btn_login)
-        btnsignUp = findViewById(R.id.btnRegistration)
-        password_reset = findViewById(R.id.password_reset)
 
         auth = Firebase.auth
 
@@ -51,32 +48,35 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun userLogin() {
-        lateinit var editTextEmail: EditText
-        lateinit var editTextPassword: EditText
-        editTextEmail = findViewById(R.id.editTextEmail)
-        editTextPassword = findViewById(R.id.editTextPassword)
+
+        var editTextEmail: EditText = findViewById(R.id.editTextEmail)
+        var editTextPassword: EditText = findViewById(R.id.editTextPassword)
         var email = editTextEmail.text.toString()
         var password = editTextPassword.text.toString()
 
         if (email.isEmpty()) {
             editTextEmail.error = "Das Feld E-Mail ist leer!"
             editTextEmail.requestFocus()
+
             return
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editTextEmail.error = "Ungültiges E-Mail Format!"
             editTextEmail.requestFocus()
+
             return
         }
 
         if (password.isEmpty()) {
             editTextPassword.error = "Das Feld Passwort ist leer!"
             editTextPassword.requestFocus()
+
             return
         }
 
         progressBar.setVisibility(View.VISIBLE)
+
         auth.signInWithEmailAndPassword(email , password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
