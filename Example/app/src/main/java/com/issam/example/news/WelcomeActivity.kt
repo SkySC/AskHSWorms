@@ -27,7 +27,7 @@ import com.issam.example.ProfileActivity
 import com.issam.example.R
 import com.issam.example.com.issam.example.adapter.NewsAdapter
 import com.issam.example.com.issam.example.glide.GlideApp
-import com.issam.example.com.issam.example.model.News
+import com.issam.example.model.News
 import com.issam.example.com.issam.example.model.User
 import com.issam.example.forum.ForumActivity
 import com.xwray.groupie.GroupAdapter
@@ -43,8 +43,8 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
     lateinit var btnLeft: ImageView
     lateinit var userImage: CircleImageView
     lateinit var nameUser: TextView
-    private lateinit var chatSection: Section
     lateinit var mRecyclerView: RecyclerView
+    private lateinit var newsSection: Section
 
     private val firestoreInstance: FirebaseFirestore by lazy {
         FirebaseFirestore.getInstance()
@@ -57,10 +57,6 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        lateinit var toolbar1: Toolbar
-        lateinit var drawerLayout: DrawerLayout
-        lateinit var navigationView: NavigationView
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 
@@ -68,7 +64,7 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
         nameUser = findViewById(R.id.nameUser)
         mRecyclerView = findViewById(R.id.mRecyclerView)
 
-        addChatListener(::initRecyclerView)
+        addNewsListener(::initRecyclerView)
 
         // Database get document von Firebase -> Ster by id
         firestoreInstance.collection("users")
@@ -77,6 +73,7 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
             .addOnSuccessListener {
                 val user = it.toObject(User::class.java) // casting to Object
                 nameUser.text = user!!.fullname
+
                 if (user!!.profilBild?.isNotEmpty()) {
                     GlideApp.with(this)
                         .load(storageInstance.getReference(user.profilBild))
@@ -101,9 +98,9 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
             ).show()
         }
 
-        drawerLayout = findViewById(R.id.drawerLayout)
-        toolbar1 = findViewById(R.id.toolbar1)
-        navigationView = findViewById(R.id.nav_view)
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
+        val toolbar1: Toolbar = findViewById(R.id.toolbar1)
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
         setSupportActionBar(toolbar1)
 
         val toggle = ActionBarDrawerToggle(
@@ -165,8 +162,7 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
         return true
     }
 
-
-    private fun addChatListener(onListen: (List<Item>) -> Unit): ListenerRegistration {
+    private fun addNewsListener(onListen: (List<Item>) -> Unit): ListenerRegistration {
         return firestoreInstance.collection("news")
             .addSnapshotListener { querySnapshot , firebaseFirestoreException ->
                 if (firebaseFirestoreException != null) {
@@ -178,6 +174,7 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
                     items.add(NewsAdapter(it.toObject(News::class.java)!! , this))
 
                 }
+
                 onListen(items)
             }
     }
@@ -187,24 +184,24 @@ class WelcomeActivity : AppCompatActivity() , NavigationView.OnNavigationItemSel
         mRecyclerView.layoutManager = LinearLayoutManager(this , LinearLayout.VERTICAL , false)
         mRecyclerView.apply {
             adapter = GroupAdapter<GroupieViewHolder>().apply {
-                chatSection = Section(item)
-                add(chatSection)
+                newsSection = Section(item)
+                add(newsSection)
                 setOnItemClickListener(onItemClick)
             }
         }
     }
 
-    val onItemClick = OnItemClickListener { item , view ->
+    private val onItemClick = OnItemClickListener { item , view ->
         if (item is NewsAdapter) {
             item.news.titleNews
-            item.news.ContenuNews
+            item.news.ContentNews
             item.news.mNewsPhoto
             item.news.dateNews
 
             val intent = Intent(applicationContext , NewsContentActivity::class.java)
 
             intent.putExtra("title" , item.news.titleNews)
-            intent.putExtra("contenu" , item.news.ContenuNews)
+            intent.putExtra("contenu" , item.news.ContentNews)
             intent.putExtra("img" , item.news.mNewsPhoto)
             intent.putExtra("date" , item.news.dateNews)
             startActivity(intent)

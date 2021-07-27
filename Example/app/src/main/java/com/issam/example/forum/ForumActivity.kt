@@ -45,8 +45,10 @@ class ForumActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelec
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forum)
+
         userImage = findViewById(R.id.userImage)
         nameUser = findViewById(R.id.nameUser)
 

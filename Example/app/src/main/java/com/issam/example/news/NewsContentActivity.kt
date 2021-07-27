@@ -13,11 +13,11 @@ class NewsContentActivity : AppCompatActivity() {
         setContentView(R.layout.activity_news_content)
 
         val title = intent.getStringExtra("title")
-        val contenu = intent.getStringExtra("contenu")
+        val content = intent.getStringExtra("contenu")
         val dateNews = intent.getStringExtra("date")
 
         titleNews.text = title
-        contenuas.text = contenu
+        contenuas.text = content
         date.text = dateNews
 
         rjaa.setOnClickListener {

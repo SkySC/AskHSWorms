@@ -14,7 +14,7 @@ class PasswordForgotActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     lateinit var resetPasswordBtn: Button
-    lateinit var btnZurick: ImageView
+    lateinit var btnZurueck: ImageView
     lateinit var emailEditText: EditText
     lateinit var progressBar: ProgressBar
 
@@ -24,13 +24,13 @@ class PasswordForgotActivity : AppCompatActivity() {
         setContentView(R.layout.activity_forgot_password)
 
         resetPasswordBtn = findViewById(R.id.resetPassword)
-        btnZurick = findViewById(R.id.zurick)
+        btnZurueck = findViewById(R.id.zurick)
         emailEditText = findViewById(R.id.email)
         progressBar = findViewById(R.id.progressBar)
 
         auth = FirebaseAuth.getInstance()
 
-        btnZurick.setOnClickListener {
+        btnZurueck.setOnClickListener {
             startActivity(Intent(applicationContext , LoginActivity::class.java))
             finish()
         }
@@ -42,7 +42,7 @@ class PasswordForgotActivity : AppCompatActivity() {
 
     private fun resetPassword() {
 
-        var email = emailEditText.text.toString().trim()
+        val email = emailEditText.text.toString().trim()
 
         if (email.isEmpty()) {
             emailEditText.setError("Das Feld E-Mail ist leer!")

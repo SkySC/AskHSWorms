@@ -28,6 +28,7 @@ class FragenActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragen)
+
         auth = Firebase.auth
         val database = FirebaseDatabase.getInstance()
         mRef = database.getReference("fragen")
@@ -48,17 +49,19 @@ class FragenActivity : AppCompatActivity() {
         val view = layoutInflater.inflate(R.layout.add_frage , null)
         alertBuilder.setView(view)
         val alertDialog = alertBuilder.create()
+
         alertDialog.show()
 
         view.btnSaveFrage.setOnClickListener {
             val title = view.fragentitel_input.text.toString()
-            val ffrage = view.fragencotenu_input.text.toString()
+            val frage = view.fragencotenu_input.text.toString()
 
-            if (title.isNotEmpty() && ffrage.isNotEmpty()) {
+            if (title.isNotEmpty() && frage.isNotEmpty()) {
                 val db = FirebaseFirestore.getInstance()
                 val itemfrage: MutableMap<String , Any> = HashMap()
+
                 itemfrage["title"] = title
-                itemfrage["contenu"] = ffrage
+                itemfrage["contenu"] = frage
                 itemfrage["studiengand"] = "informatik"
                 itemfrage["time"] = getCurrentDate()
                 itemfrage["id_user"] = auth.currentUser.uid
@@ -72,6 +75,7 @@ class FragenActivity : AppCompatActivity() {
                     .addOnFailureListener {
                         Toast.makeText(this , "Fehler beim Hinzufügen!" , Toast.LENGTH_LONG).show()
                     }
+
             } else {
                 Toast.makeText(
                     this , "Fülle bitte zunächst beide Felder aus!" ,

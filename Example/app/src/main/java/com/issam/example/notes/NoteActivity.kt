@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
@@ -21,11 +20,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.issam.askworms_demo1.LoginActivity
 import com.issam.example.*
-import com.issam.example.com.issam.example.glide.GlideApp
-import com.issam.example.com.issam.example.model.Note
+import com.issam.example.R
 import com.issam.example.adapter.NoteAdapter
+import com.issam.example.com.issam.example.glide.GlideApp
 import com.issam.example.com.issam.example.model.User
 import com.issam.example.forum.ForumActivity
+import com.issam.example.model.Note
 import com.issam.example.news.WelcomeActivity
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.add_note.view.*
@@ -33,7 +33,6 @@ import kotlinx.android.synthetic.main.delete_note.view.*
 import kotlinx.android.synthetic.main.fragment_notes.*
 import java.text.SimpleDateFormat
 import java.util.*
-import com.issam.example.R
 import kotlin.collections.ArrayList
 
 class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
@@ -60,8 +59,10 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notizen)
+
         userImage = findViewById(R.id.userImage)
         nameUser = findViewById(R.id.nameUser)
         add = findViewById(R.id.add)
@@ -76,11 +77,11 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
         note_list_view.onItemClickListener =
             AdapterView.OnItemClickListener { parent , view , position , id ->
-                var mynote = mNoteList?.get(position)!!
-                var title = mynote.title
-                var note = mynote.note
-                var tarikh = mynote.timestamp
-                var noteIntent = Intent(this@NoteActivity , NoteContentActivity::class.java)
+                val mynote = mNoteList?.get(position)!!
+                val title = mynote.title
+                val note = mynote.note
+                val tarikh = mynote.timestamp
+                val noteIntent = Intent(this@NoteActivity , NoteContentActivity::class.java)
 
                 noteIntent.putExtra("Title_Key" , title)
                 noteIntent.putExtra("Note_Key" , note)
@@ -97,24 +98,26 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                 alertDialog.setView(view)
                 alertDialog.show()
 
-                var myNote = mNoteList?.get(position)!!
-                var title = myNote.title
-                var note = myNote.note
+                val myNote = mNoteList?.get(position)!!
+                val title = myNote.title
+                val note = myNote.note
+
                 view.delete_title.setText(title)
                 view.delete_note.setText(note)
 
                 view.btnUpdateNote.setOnClickListener {
-                    var childRef = mRef?.child(myNote.id.toString())
-                    var title = view.delete_title.text.toString()
-                    var note = view.delete_note.text.toString()
+                    val childRef = mRef?.child(myNote.id.toString())
+                    val title = view.delete_title.text.toString()
+                    val note = view.delete_note.text.toString()
 
-                    var afterUpdate = Note(myNote.id , title , note , getCurrentDate())
+                    val afterUpdate = Note(myNote.id , title , note , getCurrentDate())
                     childRef?.setValue(afterUpdate)
                     alertDialog.dismiss()
                 }
 
                 view.btnDeletNote.setOnClickListener {
                     mRef?.child(myNote.id.toString())?.removeValue()
+
                     Toast.makeText(baseContext , "Die Notiz wurde gelöscht" , Toast.LENGTH_SHORT)
                         .show()
                     alertDialog.dismiss()
@@ -164,12 +167,13 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         navigationView.setNavigationItemSelectedListener(this)
     }
 
-    fun showDialogAddNote() {
+    private fun showDialogAddNote() {
 
         val alertBuilder = AlertDialog.Builder(this)
         val view = layoutInflater.inflate(R.layout.add_note , null)
         alertBuilder.setView(view)
         val alertDialog = alertBuilder.create()
+
         alertDialog.show()
 
         view.save_note.setOnClickListener {
@@ -177,14 +181,15 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             val note = view.note_edittext.text.toString()
 
             if (title.isNotEmpty() && note.isNotEmpty()) {
-                var id = mRef!!.push().key
-                var myNote = Note(id , title , note , getCurrentDate())
+                val id = mRef!!.push().key
+                val myNote = Note(id , title , note , getCurrentDate())
 
                 if (id != null) {
                     mRef!!.child(id).setValue(myNote)
                 }
 
                 alertDialog.dismiss()
+
             } else {
                 Toast.makeText(this , "Empty" , Toast.LENGTH_LONG).show()
             }
@@ -262,7 +267,7 @@ class NoteActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         })
     }
 
-    fun getCurrentDate(): String {
+    private fun getCurrentDate(): String {
 
         val calendar = Calendar.getInstance()
         val mdformat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'" , Locale.GERMANY)

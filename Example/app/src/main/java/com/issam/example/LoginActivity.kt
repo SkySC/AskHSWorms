@@ -36,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext , RegisterActivity::class.java))
             finish()
         }
+
         password_reset.setOnClickListener {
             startActivity(Intent(applicationContext , PasswordForgotActivity::class.java))
             finish()
@@ -43,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
 
         btnlogin.setOnClickListener {
             userLogin()
-
         }
     }
 

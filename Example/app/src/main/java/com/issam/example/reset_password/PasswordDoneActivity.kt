@@ -14,10 +14,9 @@ class PasswordDoneActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_password_done)
 
-        var zurickBtn: ImageView
-        zurickBtn = findViewById(R.id.zurick)
+        val zurueckBtn: ImageView = findViewById(R.id.zurick)
 
-        zurickBtn.setOnClickListener {
+        zurueckBtn.setOnClickListener {
             startActivity(Intent(applicationContext , LoginActivity::class.java))
             finish()
         }

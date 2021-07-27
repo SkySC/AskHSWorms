@@ -2,7 +2,7 @@ package com.issam.example.com.issam.example.adapter
 
 import android.content.Context
 import com.google.firebase.storage.FirebaseStorage
-import com.issam.example.com.issam.example.model.News
+import com.issam.example.model.News
 import com.issam.example.R
 import com.issam.example.com.issam.example.glide.GlideApp
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
@@ -17,7 +17,7 @@ class NewsAdapter(val news: News , val context: Context) : Item() {
 
     override fun bind(viewHolder: GroupieViewHolder , position: Int) {
         viewHolder.titleNews.text = news.titleNews
-        viewHolder.textNews.text = news.ContenuNews
+        viewHolder.textNews.text = news.ContentNews
         viewHolder.dateNews.text = news.dateNews
 
         if (news.mNewsPhoto.isNotEmpty()) {
