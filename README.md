@@ -1,4 +1,3 @@
 # AskHSWorms
-EmA project at HS Worms
-Es geht hier um einen Projekt für das Module EMA für die HS Worms
-Issam Charef - Saleh Chaaban.
+Projekt im Modul "Entwicklung mobiler Anwendungen" im Studiengang Angewandte Informatik
+Thema: Foren App für Studierende und Mitarbeiter:innen der Hochschule Worms.
