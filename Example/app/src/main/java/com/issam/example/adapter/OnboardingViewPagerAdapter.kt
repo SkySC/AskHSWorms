@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import com.issam.askworms_demo1.model.OnboardingData
+import com.issam.example.model.Onboarding
 import com.issam.example.R
 
 class OnboardingViewPagerAdapter(
     private var context: Context ,
-    private var onBoardingList: List<OnboardingData>
+    private var onBoardingList: List<Onboarding>
 ) : PagerAdapter() {
 
     override fun getCount(): Int = onBoardingList.size
@@ -25,18 +25,13 @@ class OnboardingViewPagerAdapter(
     override fun instantiateItem(container: ViewGroup , position: Int): Any {
 
         val view = LayoutInflater.from(context).inflate(R.layout.slide_layout , null);
+        val imageView: ImageView = view.findViewById(R.id.imageView)
+        val title: TextView = view.findViewById(R.id.slide_heading)
+        val desc: TextView = view.findViewById(R.id.slide_desc)
 
-        val imageView: ImageView
-        val title: TextView
-        val desc: TextView
-
-        imageView = view.findViewById(R.id.imageView)
-        title = view.findViewById(R.id.slide_heading)
-        desc = view.findViewById(R.id.slide_desc)
-
-        imageView.setImageResource(onBoardingList[position].imgUrl)
-        title.text = onBoardingList[position].title
-        desc.text = onBoardingList[position].desc
+        imageView.setImageResource(onBoardingList[position].tabImgURL)
+        title.text = onBoardingList[position].tabTitle
+        desc.text = onBoardingList[position].tabDescription
 
         container.addView(view)
 

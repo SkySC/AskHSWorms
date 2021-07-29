@@ -28,7 +28,7 @@ import com.issam.example.R
 import com.issam.example.com.issam.example.adapter.NewsAdapter
 import com.issam.example.com.issam.example.glide.GlideApp
 import com.issam.example.model.News
-import com.issam.example.com.issam.example.model.User
+import com.issam.example.model.User
 import com.issam.example.forum.ForumActivity
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.OnItemClickListener

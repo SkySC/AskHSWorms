@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.issam.example.com.issam.example.glide.GlideApp
-import com.issam.example.com.issam.example.model.User
+import com.issam.example.model.User
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_profile.*
 import java.io.ByteArrayOutputStream

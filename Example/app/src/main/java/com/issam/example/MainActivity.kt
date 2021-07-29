@@ -10,22 +10,22 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.issam.askworms_demo1.LoginActivity
 import com.issam.askworms_demo1.adapter.OnboardingViewPagerAdapter
-import com.issam.askworms_demo1.model.OnboardingData
+import com.issam.example.model.Onboarding
 
 open class MainActivity : AppCompatActivity() {
 
-    var onboardingViewPagerAdapter: OnboardingViewPagerAdapter? = null
-    var tabLayout: TabLayout? = null
+    var onboardingViewPagerAdapterRef: OnboardingViewPagerAdapter? = null
+    var tabLayoutRef: TabLayout? = null
     var onboardingViewPager: ViewPager? = null
-    var next: TextView? = null
-    var position = 0
-    var sharedPreferences: SharedPreferences? = null
+    var nextView: TextView? = null
+    var currentTab = 0
+    var sharedPreferencesRef: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         // check if on boarding has already been completed & skip it
-        if (restorePrefData()) {
+        if (readFromSharedPreferences()) {
             // go to LoginActivity
             startActivity(Intent(applicationContext , LoginActivity::class.java))
             // terminating current Activity
@@ -34,62 +34,62 @@ open class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        tabLayout = findViewById(R.id.tab_indicator);
-        next = findViewById(R.id.next);
+        tabLayoutRef = findViewById(R.id.tab_indicator);
+        nextView = findViewById(R.id.next);
 
         // add data to our model class
-        val onboardingData: MutableList<OnboardingData> = ArrayList()
-        onboardingData.add(
-            OnboardingData(
-                title = getString(R.string.slide_heading_text1) ,
-                desc = getString(R.string.slide_desc_text1) ,
+        val onboardingList: MutableList<Onboarding> = ArrayList()
+        onboardingList.add(
+            Onboarding(
+                tabTitle = getString(R.string.slide_heading_text1) ,
+                tabDescription = getString(R.string.slide_desc_text1) ,
                 R.drawable.icon1
             )
         )
 
-        onboardingData.add(
-            OnboardingData(
-                title = getString(R.string.slide_heading_text2) ,
-                desc = getString(R.string.slide_desc_text2) ,
+        onboardingList.add(
+            Onboarding(
+                tabTitle = getString(R.string.slide_heading_text2) ,
+                tabDescription = getString(R.string.slide_desc_text2) ,
                 R.drawable.icon2
             )
         )
 
-        onboardingData.add(
-            OnboardingData(
-                title = getString(R.string.slide_heading_text3) ,
-                desc = getString(R.string.slide_desc_text3) ,
+        onboardingList.add(
+            Onboarding(
+                tabTitle = getString(R.string.slide_heading_text3) ,
+                tabDescription = getString(R.string.slide_desc_text3) ,
                 R.drawable.icon3
             )
         )
 
-        setOnboardingViewPagerAdapter(onboardingData)
+        setOnboardingViewPagerAdapter(onboardingList)
 
-        val lastTabPosition = onboardingData.size - 1
-        position = onboardingViewPager!!.currentItem
+        val lastTab = onboardingList.size - 1
+        currentTab = onboardingViewPager!!.currentItem
 
-        next?.setOnClickListener {
+        nextView?.setOnClickListener {
 
-            when (position) {
-                in 0 until lastTabPosition -> onboardingViewPager!!.currentItem = (++position)
+            when (currentTab) {
+                in 0 until lastTab -> onboardingViewPager!!.currentItem = (++currentTab)
                 // defines what happens after last tab
                 else -> {
-                    savePrefData()
+                    saveInSharedPreferences()
                     // go to LoginActivity after clicking 'Los geht's!'
                     startActivity(Intent(applicationContext , LoginActivity::class.java))
                 }
             }
         }
         // check if tab states has changed
-        tabLayout!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        tabLayoutRef!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             // active tab
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 // get current tab position
-                position = tab!!.position
+                currentTab = tab!!.position
                 // change text at bottom right on the last page
                 when (tab.position) {
-                    lastTabPosition -> next!!.text = getString(R.string.los_gehts)
-                    else -> next!!.text = getString(R.string.naechste)
+                    lastTab -> nextView!!.text = getString(R.string.los_gehts)
+                    else -> nextView!!.text = getString(R.string.naechste)
                 }
             }
 
@@ -99,27 +99,27 @@ open class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun setOnboardingViewPagerAdapter(onboardingData: List<OnboardingData>) {
+    private fun setOnboardingViewPagerAdapter(onboardingList: List<Onboarding>) {
 
         onboardingViewPager = findViewById(R.id.screenPager)
-        onboardingViewPagerAdapter = OnboardingViewPagerAdapter(this , onboardingData)
-        onboardingViewPager!!.adapter = onboardingViewPagerAdapter
-        tabLayout?.setupWithViewPager(onboardingViewPager)
+        onboardingViewPagerAdapterRef = OnboardingViewPagerAdapter(this , onboardingList)
+        onboardingViewPager!!.adapter = onboardingViewPagerAdapterRef
+        tabLayoutRef?.setupWithViewPager(onboardingViewPager)
     }
 
     // set flag in sharedPreferences
-    private fun savePrefData() {
+    private fun saveInSharedPreferences() {
 
-        sharedPreferences = applicationContext.getSharedPreferences("pref" , Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
-        editor.putBoolean("isOnboardingCompleted" , true)
-        editor.apply()
+        sharedPreferencesRef = applicationContext.getSharedPreferences("pref" , Context.MODE_PRIVATE)
+        val sharedPreferencesEditor: SharedPreferences.Editor = sharedPreferencesRef!!.edit()
+        sharedPreferencesEditor.putBoolean("isOnboardingCompleted" , true)
+        sharedPreferencesEditor.apply()
     }
 
     // read flag from sharedPreferences
-    private fun restorePrefData(): Boolean {
+    private fun readFromSharedPreferences(): Boolean {
 
-        sharedPreferences = applicationContext.getSharedPreferences("pref" , Context.MODE_PRIVATE)
-        return sharedPreferences!!.getBoolean("isOnboardingCompleted" , false)
+        sharedPreferencesRef = applicationContext.getSharedPreferences("pref" , Context.MODE_PRIVATE)
+        return sharedPreferencesRef!!.getBoolean("isOnboardingCompleted" , false)
     }
 }

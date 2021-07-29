@@ -23,7 +23,7 @@ import com.issam.example.*
 import com.issam.example.R
 import com.issam.example.adapter.NoteAdapter
 import com.issam.example.com.issam.example.glide.GlideApp
-import com.issam.example.com.issam.example.model.User
+import com.issam.example.model.User
 import com.issam.example.forum.ForumActivity
 import com.issam.example.model.Note
 import com.issam.example.news.WelcomeActivity

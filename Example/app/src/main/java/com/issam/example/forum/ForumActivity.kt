@@ -21,7 +21,7 @@ import com.issam.example.ProfileActivity
 import com.issam.example.R
 import com.issam.example.news.WelcomeActivity
 import com.issam.example.com.issam.example.glide.GlideApp
-import com.issam.example.com.issam.example.model.User
+import com.issam.example.model.User
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.fragment_forum.*
 

@@ -16,7 +16,7 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.issam.example.R
-import com.issam.example.com.issam.example.model.User
+import com.issam.example.model.User
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {

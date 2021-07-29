@@ -20,12 +20,13 @@ class LoginActivity : AppCompatActivity() {
     lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        var btnlogin: Button = findViewById(R.id.btn_login)
-        var btnsignUp: ImageView = findViewById(R.id.btnRegistration)
-        var password_reset: TextView = findViewById(R.id.password_reset)
+        val btnlogin: Button = findViewById(R.id.btn_login)
+        val btnsignUp: ImageView = findViewById(R.id.btnRegistration)
+        val password_reset: TextView = findViewById(R.id.password_reset)
 
         progressBar = findViewById(R.id.progressBar)
         auth = FirebaseAuth.getInstance()
